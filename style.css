@@ -1,30 +1,18 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* Adicionado para incluir padding e border nas dimensões */
 }
 
 body {
-  /*
-  background-image: url(./assets/bg-mobile.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  */
-
   background: var(--bg-url) no-repeat top center/cover;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-/*
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 100 to 900
 
-.inter-<uniquifier> {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
-*/
 :root {
   --text-color: white;
   --bg-url: url(./assets/bg-mob1.jpg);
@@ -54,17 +42,17 @@ body * {
   width: 100%;
   max-width: 588px;
   margin: 56px auto 0px;
-  padding: 0 24px;
+  padding: 0 5%;
 }
 
-/*profile*/
 #profile {
   text-align: center;
   padding: 24px;
 }
 
 #profile img {
-  width: 112px;
+  width: 28vw;
+  max-width: 112px;
 }
 
 #profile p {
@@ -73,7 +61,7 @@ body * {
   margin-top: 8px;
 }
 
-/*switch*/
+/* Switch */
 #switch {
   position: relative;
   width: 64px;
@@ -109,21 +97,20 @@ body * {
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   border-radius: 999px;
 }
 
-/* links */
+/* Links */
 ul {
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Mantém a disposição em coluna */
   gap: 16px;
   padding: 24px 0;
+  width: 100%; /* Garante que a lista ocupe 100% da largura disponível */
 }
 
 ul li a {
-  border: 1px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,19 +119,19 @@ ul li a {
   border: 1px solid var(--stroke-color);
   border-radius: 8px;
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   text-decoration: none;
   font-weight: 500;
   transition: background 0.2s;
+  width: 100%; /* Faz os itens ocuparem toda a largura */
+  box-sizing: border-box; /* Garante que padding e borders sejam considerados no tamanho total */
 }
 
-/* pseudo-selector */
 ul li a:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
 }
 
-/* social-links */
+/* Social Links */
 #social-links {
   display: flex;
   justify-content: center;
@@ -171,20 +158,31 @@ footer {
   font-size: 14px;
 }
 
-/*media queries */
+/* Media Queries */
 @media (min-width: 700px) {
   :root {
-    /*--bg-url: url(./assets/bg-desktop.jpg);*/
     --bg-url: url(./assets/bg-mob1.jpg);
   }
 
   .light {
-    /*--bg-url: url(./assets/bg-desktop-light.jpg);*/
     --bg-url: url(./assets/bg-mob1.jpg);
+  }
+
+  #container {
+    padding: 0 20px;
+  }
+
+  ul {
+    width: 100%; /* Garante que a lista ainda ocupe 100% da largura no desktop */
+    flex-direction: column; /* Mantém a disposição vertical mesmo em telas grandes */
+  }
+
+  #profile img {
+    width: 96px;
   }
 }
 
-/* animation */
+/* Animation */
 @keyframes slide-in {
   from {
     left: 0;
